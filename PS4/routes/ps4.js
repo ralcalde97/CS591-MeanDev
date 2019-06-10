@@ -1,16 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const request = require("request")
+const request = require("request");
 
 
-const config = require('../configs/config.json')
+const config = require('../configs/config.json');
 
 
 
 /* GET ps4 page. */
 router.get('/', function(req, res, next) {
-    console.log('Starting waterfall')
-    getRestaurants()
+    getData()
         .then(function (body) {
             const temp = JSON.parse(body).main.temp;
             const mintemp = JSON.parse(body).main.temp_min;
@@ -23,7 +22,7 @@ router.get('/', function(req, res, next) {
 
         .catch(function(err) {
             console.log(`ERROR! ${err}`);
-            res.render('ps4', {result: 'Error processing'})
+            res.render('ps4', {result: 'Error processing'});
         });
 
     console.log(`Waiting?`);
@@ -33,7 +32,7 @@ router.get('/', function(req, res, next) {
 
 
 
-const getRestaurants = function () {
+const getData = function () {
     return new Promise(function (resolve, reject) {
 
         let city = "Boston";
@@ -46,10 +45,9 @@ const getRestaurants = function () {
         request(options, function (error, response, body) {
             if (error)
 
-                reject(new Error(error))
+                reject(new Error(error));
             else {
-                console.log(body)
-                resolve(body)
+                resolve(body);
 
             }
         })
