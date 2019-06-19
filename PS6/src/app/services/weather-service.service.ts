@@ -13,12 +13,8 @@ export class WeatherService {
   constructor(private client: HttpClient) { }
 
   getWeatherInfo(name: string): Observable<WeatherInfo> {
-    const endPoint: string = this.makeEndpoint(name);
+    const endPoint: string = 'http://localhost:3000/ps4/' + name;
     return this.client.get<WeatherInfo>(endPoint);
   }
 
-  private makeEndpoint(name: string) {
-    console.log(name);
-    return 'http://localhost:3000/ps4/' + name;
-  }
 }
