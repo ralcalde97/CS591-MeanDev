@@ -18,6 +18,7 @@ export class WeatherService {
   }
 
   private makeEndpoint(name: string) {
-    return 'localhost:3000/ps4/' + name;
+    console.log(name);
+    return 'http://localhost:3000/ps4/' + name;
   }
 }
