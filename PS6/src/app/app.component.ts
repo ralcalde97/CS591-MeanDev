@@ -1,7 +1,6 @@
 
 
 import { Component } from '@angular/core';
-import { CitiesInfo} from './MockedDataPS5';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ import { CitiesInfo} from './MockedDataPS5';
 })
 
 export class AppComponent {
-  title = 'PS5';
-  citiesinfo = CitiesInfo;
+  title = 'PS6';
 
 }
